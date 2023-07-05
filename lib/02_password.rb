@@ -1,7 +1,8 @@
 def signup
   puts "Définis un mot de passe"
   print "> "
-  gets.chomp
+  stored_password = gets.chomp
+  login(stored_password)
 end
 
 def login(stored_password)
@@ -14,20 +15,12 @@ def login(stored_password)
     print "> "
     input_password = gets.chomp
   end
-  if input_password == stored_password
-    return true
-  end
+  welcome_screen
 end
 
-def welcome_screen(login)
-  if login == true
-    puts "Bienvenue dans ton espace top secret"
-    puts "- Ta femme te trompe"
-  end
+def welcome_screen
+  puts "Bienvenue dans ton espace top secret"
+  puts "- Ta femme te trompe"
 end
 
-def perform
-  welcome_screen(login(signup))
-end
-
-perform
+signup
